@@ -10,6 +10,7 @@
     "express": "^4.15.3"
   },
   "scripts": {
-    "db:setup": "./src/bin/initialize"
+    "db:setup": "./src/bin/initialize",
+    "start": "node ./src/index.js"
   }
 }
