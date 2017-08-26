@@ -1,0 +1,12 @@
+{
+  "name": "core_api",
+  "version": "1.0.0",
+  "description": "Redvelvet core API",
+  "main": "index.js",
+  "author": "Anoop Varghese",
+  "license": "MIT",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "express": "^4.15.3"
+  }
+}
