@@ -1,0 +1,21 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "standard",
+      "promise"      
+  ],
+  "rules": {
+    "semi": [
+      "error",
+      "always"              
+    ]
+  },
+  "globals": {
+    "describe": true,
+    "it": false,
+    "beforeEach": true,
+    "before": true,
+    "xit": false,
+    "afterEach": true
+  }
+}
