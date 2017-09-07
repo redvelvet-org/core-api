@@ -1,21 +1,18 @@
 {
-  "extends": "standard",
-  "plugins": [
-    "standard",
-      "promise"      
-  ],
+  "extends": ["eslint-config-airbnb-base", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "semi": [
-      "error",
-      "always"              
-    ]
+    "prefer-promise-reject-errors": "off"
   },
-  "globals": {
-    "describe": true,
-    "it": false,
-    "beforeEach": true,
-    "before": true,
-    "xit": false,
-    "afterEach": true
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": false
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true
   }
 }
