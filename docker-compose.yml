@@ -7,6 +7,7 @@ services:
       - DATABASE_URI=postgres://redvelvet@postgresql/rv_api_development
       - DATABASE_INITIALIZATION_URI=postgres://postgres@postgresql/template1
       - AUTH_SECRET_KEY=super-secret
+      - LOG_LEVEL=1
     volumes:
       - .:/usr/src/app
     build:
@@ -24,6 +25,7 @@ services:
       - DATABASE_URI=postgres://redvelvet@postgresql/rv_api_testing
       - DATABASE_INITIALIZATION_URI=postgres://postgres@postgresql/template1
       - AUTH_SECRET_KEY=super-secret
+      - LOG_LEVEL=1
 networks:
   default:
     external:

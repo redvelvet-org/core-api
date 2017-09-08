@@ -7,13 +7,17 @@
   "license": "MIT",
   "dependencies": {
     "bunyan": "^1.8.12",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "sequelize": "^4.8.2"
   },
   "scripts": {
-    "db:setup": "./src/bin/initialize",
     "precommit": "lint-staged",
     "start": "node ./src/index.js",
-    "lint": "prettier --write 'src/**/*.js' 'src/*.js' test/**/*.js && eslint --fix src test"
+    "lint": "prettier --write 'src/**/*.js' 'src/*.js' test/**/*.js && eslint --fix src test",
+    "db:migration": "sequelize migration:create --url `echo $DATABASE_URI`",
+    "db:migrate": "sequelize db:migrate --url `echo $DATABASE_URI`",
+    "db:reset": "./src/bin/reset",
+    "db:setup": "./src/bin/initialize"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
