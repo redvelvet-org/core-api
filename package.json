@@ -8,7 +8,9 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "express": "^4.15.3",
-    "sequelize": "^4.8.2"
+    "pg": "^7.3.0",
+    "sequelize": "^4.8.2",
+    "sequelize-cli": "^3.0.0-1"
   },
   "scripts": {
     "precommit": "lint-staged",
