@@ -19,17 +19,24 @@
     "db:migration": "sequelize migration:create --url `echo $DATABASE_URI`",
     "db:migrate": "sequelize db:migrate --url `echo $DATABASE_URI`",
     "db:reset": "./src/bin/reset",
-    "db:setup": "./src/bin/initialize"
+    "db:setup": "./src/bin/initialize",
+    "spec": "NODE_ENV=test ./node_modules/.bin/mocha -R spec",
+    "test": "yarn db:reset && yarn db:migrate && yarn spec"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-config-prettier": "^2.4.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.2.0",
+    "faker": "^4.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.4",
-    "prettier": "^1.6.1"
+    "mocha": "^3.5.1",
+    "prettier": "^1.6.1",
+    "sinon": "^3.2.1",
+    "supertest": "^3.0.0"
   },
   "lint-staged": {
     "*.js": [

@@ -14,5 +14,12 @@
   "env": {
     "es6": true,
     "node": true
+  },
+  "globals": {
+    "describe": true,
+    "it": false,
+    "beforeEach": true,
+    "before": true,
+    "afterEach": true
   }
 }
