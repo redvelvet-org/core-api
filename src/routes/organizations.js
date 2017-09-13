@@ -9,8 +9,8 @@ router.get('/search', async (req, res) => {
   res.json(resp);
 });
 
-router.get('/read', async (req, res) => {
-  const resp = await readAction(req.query);
+router.get('/read/:id', async (req, res) => {
+  const resp = await readAction(req.params.id);
   res.json(resp);
 });
 

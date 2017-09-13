@@ -1,12 +1,9 @@
 const { Organization } = require('../../models');
 
-const readAction = async query => {
-  if (query) {
-    return Organization.findAll({
-        attributes: ['name']
-    });
+const readAction = id => {
+  if (id) {
+    return Organization.findById(id);
   }
-
   return [];
 };
 
