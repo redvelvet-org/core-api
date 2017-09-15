@@ -22,16 +22,16 @@ script:
   - docker-compose -f docker-compose-build.yml run test yarn run test:build
 
 # Set env vars
-# env:
-#   global:
-#     - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
-#     - PROJECT_NAME_STG=redvelvet-testing
-#     - CLUSTER_NAME_STG=deployment
-#     - CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a
-#     - DOCKER_IMAGE_NAME=core_api
-#     - KUBE_DEPLOYMENT_NAME=core_api_staging
-#     - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
-#     - NODE_ENV=CI
+env:
+  global:
+    - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
+    - PROJECT_NAME_STG=redvelvet-testing
+    - CLUSTER_NAME_STG=deployment
+    - CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a
+    - DOCKER_IMAGE_NAME=core_api
+    - KUBE_DEPLOYMENT_NAME=core_api_staging
+    - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
+    - NODE_ENV=CI
 
 
 # before_deploy:
