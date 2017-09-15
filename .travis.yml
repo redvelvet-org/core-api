@@ -1,10 +1,22 @@
-# Use Dockerized infrastructure
-sudo: false
+sudo: required
 
-# Use node_js environnement
-language: node_js
-node_js:
-  - "8"
+services:
+  - docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.11.0
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+script:
+  - docker-compose -f docker-compose-build.yml run test yarn --force
+  - docker-compose -f docker-compose-build.yml run test yarn run build:test
+  - docker-compose -f docker-compose-build.yml run test yarn run lint
+
 
 # Cache Gcloud SDK between commands
 cache:
@@ -27,11 +39,6 @@ env:
     - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
     - NODE_ENV=CI
 
-install:
-  - npm install
-
-script:
-  - npm test
 
 before_deploy:
   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
