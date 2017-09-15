@@ -16,5 +16,5 @@ services:
       - postgresql
     environment:
       - NODE_ENV=testing
-      - DATABASE_URI=postgres://redvelvet@postgresql/access_testing
+      - DATABASE_URI=postgres://redvelvet@postgresql/rv_api_testing
       - DATABASE_INITIALIZATION_URI=postgres://postgres@postgresql/template1
