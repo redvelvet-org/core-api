@@ -9,15 +9,14 @@ cache:
     - "$HOME/google-cloud-sdk/"
 
 env:
-  DOCKER_COMPOSE_VERSION: 1.8.0
-  global:
-    - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
-    - PROJECT_NAME_STG=redvelvet-testing
-    - CLUSTER_NAME_STG=deployment
-    - CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a
-    - DOCKER_IMAGE_NAME=core_api
-    - KUBE_DEPLOYMENT_NAME=core_api_staging
-    - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
+  - DOCKER_COMPOSE_VERSION=1.8.0
+  - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
+  - PROJECT_NAME_STG=redvelvet-testing
+  - CLUSTER_NAME_STG=deployment
+  - CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a
+  - DOCKER_IMAGE_NAME=core_api
+  - KUBE_DEPLOYMENT_NAME=core_api_staging
+  - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
