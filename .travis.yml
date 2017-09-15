@@ -31,7 +31,6 @@ env:
     - DOCKER_IMAGE_NAME=core_api
     - KUBE_DEPLOYMENT_NAME=core_api_staging
     - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
-    - NODE_ENV=CI
 
 
 # before_deploy:
