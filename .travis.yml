@@ -4,7 +4,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
+  DOCKER_COMPOSE_VERSION: 1.8.0
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -14,8 +14,8 @@ before_install:
 
 script:
   - docker-compose -f docker-compose-build.yml run test yarn --force
-  - docker-compose -f docker-compose-build.yml run test yarn run build:test
-  - docker-compose -f docker-compose-build.yml run test yarn run lint
+  - docker-compose -f docker-compose-build.yml run test yarn run test
+
 
 
 # Cache Gcloud SDK between commands
