@@ -18,7 +18,7 @@ script:
 
 
 
-Cache Gcloud SDK between commands
+# Cache Gcloud SDK between commands
 cache:
   directories:
     - "$HOME/google-cloud-sdk/"
