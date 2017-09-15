@@ -3,6 +3,11 @@ sudo: required
 services:
   - docker
 
+# Cache Gcloud SDK between commands
+cache:
+  directories:
+    - "$HOME/google-cloud-sdk/"
+
 env:
   DOCKER_COMPOSE_VERSION: 1.8.0
 
@@ -14,14 +19,7 @@ before_install:
 
 script:
   - docker-compose -f docker-compose-build.yml run test yarn --force
-  - docker-compose -f docker-compose-build.yml run test yarn run test
-
-
-
-# Cache Gcloud SDK between commands
-cache:
-  directories:
-    - "$HOME/google-cloud-sdk/"
+  - docker-compose -f docker-compose-build.yml run test yarn run test:build
 
 # Set env vars
 env:
