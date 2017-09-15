@@ -30,20 +30,17 @@ script:
   - docker-compose -f docker-compose-build.yml run test yarn --force
   - docker-compose -f docker-compose-build.yml run test yarn run test:build
 
+before_deploy:
+  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud --quiet version
+  - gcloud --quiet components update
+  - gcloud --quiet components beta update
+  - gcloud --quiet components update kubectl
 
-
-
-# before_deploy:
-#   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
-#   - source /home/travis/google-cloud-sdk/path.bash.inc
-#   - gcloud --quiet version
-#   - gcloud --quiet components update
-#   - gcloud --quiet components beta update
-#   - gcloud --quiet components update kubectl
-
-# deploy:
-#   - provider: script
-#     script: ./deploy-staging.sh
-#     skip_cleanup: true
-#     on:
-#       branch: develop
+deploy:
+  - provider: script
+    script: ./deploy-staging.sh
+    skip_cleanup: true
+    on:
+      branch: develop
