@@ -11,7 +11,7 @@ cache:
 # Set env vars
 env:
   global:
-    DOCKER_COMPOSE_VERSION: 1.8.0
+    - DOCKER_COMPOSE_VERSION=1.8.0
     - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
     - PROJECT_NAME_STG=redvelvet-testing
     - CLUSTER_NAME_STG=deployment
