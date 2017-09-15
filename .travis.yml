@@ -22,29 +22,29 @@ script:
   - docker-compose -f docker-compose-build.yml run test yarn run test:build
 
 # Set env vars
-env:
-  global:
-    - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
-    - PROJECT_NAME_STG=redvelvet-testing
-    - CLUSTER_NAME_STG=deployment
-    - CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a
-    - DOCKER_IMAGE_NAME=core_api
-    - KUBE_DEPLOYMENT_NAME=core_api_staging
-    - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
-    - NODE_ENV=CI
+# env:
+#   global:
+#     - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
+#     - PROJECT_NAME_STG=redvelvet-testing
+#     - CLUSTER_NAME_STG=deployment
+#     - CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a
+#     - DOCKER_IMAGE_NAME=core_api
+#     - KUBE_DEPLOYMENT_NAME=core_api_staging
+#     - KUBE_DEPLOYMENT_CONTAINER_NAME=core_api_staging
+#     - NODE_ENV=CI
 
 
-before_deploy:
-  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
-  - source /home/travis/google-cloud-sdk/path.bash.inc
-  - gcloud --quiet version
-  - gcloud --quiet components update
-  - gcloud --quiet components beta update
-  - gcloud --quiet components update kubectl
+# before_deploy:
+#   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+#   - source /home/travis/google-cloud-sdk/path.bash.inc
+#   - gcloud --quiet version
+#   - gcloud --quiet components update
+#   - gcloud --quiet components beta update
+#   - gcloud --quiet components update kubectl
 
-deploy:
-  - provider: script
-    script: ./deploy-staging.sh
-    skip_cleanup: true
-    on:
-      branch: develop
+# deploy:
+#   - provider: script
+#     script: ./deploy-staging.sh
+#     skip_cleanup: true
+#     on:
+#       branch: develop
