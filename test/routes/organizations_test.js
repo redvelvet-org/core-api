@@ -26,14 +26,13 @@ describe('Organizations route', () => {
 
   describe('/v1/read', () => {
     it('should return 200 with body', async () => {
-      const id = faker.random.uuid();
-      await organizationFixture({ id });
+      const organization = await organizationFixture({ name: 'my org' });
       const res = await request(app).get(
-        `/v1/organizations/read/${id}`
+        `/v1/organizations/read/${organization.id}`
       );
       expect(res.statusCode).to.equal(200);
-      // expect(res.body.length).to.equal(1);
-      
+      expect(res.body.name).to.equal('my org');  
     });
+
 });
 });
