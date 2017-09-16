@@ -22,5 +22,18 @@ describe('Organizations route', () => {
       expect(res.body.length).to.equal(0);
       expect(res.statusCode).to.equal(200);
     });
-  });
+  }); 
+
+  describe('/v1/read', () => {
+    it('should return 200 with body', async () => {
+      const id = faker.random.uuid();
+      await organizationFixture({ id });
+      const res = await request(app).get(
+        `/v1/organizations/read/${id}`
+      );
+      expect(res.statusCode).to.equal(200);
+      // expect(res.body.length).to.equal(1);
+      
+    });
+});
 });
