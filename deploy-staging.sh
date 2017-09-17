@@ -19,5 +19,8 @@ yes | gcloud beta container images add-tag gcr.io/${PROJECT_NAME_STG}/${DOCKER_I
 kubectl config view
 kubectl config current-context
 
+echo 'Rolling new version out'
+
 kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT
 
+echo 'All Good'
