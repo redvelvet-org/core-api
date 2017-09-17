@@ -43,3 +43,7 @@ deploy:
     skip_cleanup: true
     on:
       branch: develop
+
+notifications:
+  slack:
+    on_success: always
