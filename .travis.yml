@@ -46,4 +46,5 @@ deploy:
 
 notifications:
   slack:
-    on_success: always
+    rooms:
+      - redvelvet-hq:qPdYyFrnryoAJnyYp9IchB9j#dev
