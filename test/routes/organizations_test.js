@@ -34,11 +34,11 @@ describe('Organizations route', () => {
       expect(res.body.name).to.equal('my org');  
     }); 
 
-    it('should return 200 with empty body if not found', async () => {
+    it('should return 404 with empty body if not found', async () => {
       const id = faker.random.uuid();
       const res = await request(app).get(`/v1/organizations/read/${id}`);
       expect(res.body).to.equal(null);
-      expect(res.statusCode).to.equal(200);
+      expect(res.statusCode).to.equal(404);
     });
 
 });

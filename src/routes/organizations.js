@@ -11,7 +11,9 @@ router.get('/search', async (req, res) => {
 
 router.get('/read/:id', async (req, res) => {
   const resp = await readAction(req.params.id);
+  if(resp == null) { res.status(404);}
   res.json(resp);
+ 
 });
 
 module.exports = router;

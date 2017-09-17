@@ -4,7 +4,8 @@ const readAction = id => {
   if (id) {
     return Organization.findById(id);
   }
-  return [];
+    return [];
+
 };
 
 module.exports = {
