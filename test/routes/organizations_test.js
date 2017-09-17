@@ -25,13 +25,20 @@ describe('Organizations route', () => {
   }); 
 
   describe('/v1/read', () => {
-    it('should return 200 with body', async () => {
+    it('should return 200 with name', async () => {
       const organization = await organizationFixture({ name: 'my org' });
       const res = await request(app).get(
         `/v1/organizations/read/${organization.id}`
       );
       expect(res.statusCode).to.equal(200);
       expect(res.body.name).to.equal('my org');  
+    }); 
+
+    it('should return 200 with empty body if not found', async () => {
+      const id = faker.random.uuid();
+      const res = await request(app).get(`/v1/organizations/read/${id}`);
+      expect(res.body).to.equal(null);
+      expect(res.statusCode).to.equal(200);
     });
 
 });
