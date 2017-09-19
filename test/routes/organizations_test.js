@@ -22,7 +22,7 @@ describe('Organizations route', () => {
       expect(res.body.length).to.equal(0);
       expect(res.statusCode).to.equal(200);
     });
-  }); 
+  });
 
   describe('/v1/read', () => {
     it('should return 200 with name', async () => {
@@ -31,8 +31,8 @@ describe('Organizations route', () => {
         `/v1/organizations/read/${organization.id}`
       );
       expect(res.statusCode).to.equal(200);
-      expect(res.body.name).to.equal('my org');  
-    }); 
+      expect(res.body.name).to.equal('my org');
+    });
 
     it('should return 404 with empty body if not found', async () => {
       const id = faker.random.uuid();
@@ -40,6 +40,5 @@ describe('Organizations route', () => {
       expect(res.body).to.equal(null);
       expect(res.statusCode).to.equal(404);
     });
-
-});
+  });
 });
