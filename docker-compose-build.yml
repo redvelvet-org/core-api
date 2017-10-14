@@ -5,6 +5,7 @@ services:
     command: postgres
     volumes:
       - ./src/migrations:/docker-entrypoint-initdb.d
+      - /usr/src/app/node_modules
   test:
     volumes:
       - .:/usr/src/app
