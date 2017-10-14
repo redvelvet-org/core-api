@@ -1,13 +1,9 @@
 const { Router } = require('express');
-const { bodyParser } = require('body-parser');
 const { searchAction } = require('../actions/organization/organization_search');
 const { readAction } = require('../actions/organization/organization_read');
 const { createAction } = require('../actions/organization/organization_create');
 
 const router = Router();
-
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
 
 router.get('/search', async (req, res) => {
   const resp = await searchAction(req.query);
